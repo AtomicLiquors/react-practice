@@ -3,32 +3,38 @@ import './App.css';
 import { useState, useRef } from 'react';
 
 const App = () => {
-  //const [names, setNames] = useState(heavyWork);
-  const [count, setCount] = useState(0);
+  const [renderer, setRenderer] = useState(0);
   const countRef = useRef(0);
+  let countVar = 0;
 
-  console.log(countRef);
-  console.log('Rendering...');
-
-
-  const increaseCountState = () => {
-    setCount(count+1);
+  const doRendering = () => {
+      setRenderer(renderer + 1);
   };
 
-  const increaseCountRef = () => {
+  const increaseRef = () => {
     countRef.current = countRef.current + 1;
-    console.log("Ref : ", countRef.current);
+    console.log('ref : ', countRef.current);
   };
-  
-//Ref가 아무리 증가해도 화면이 업데이트되지 않는다. 
-//console로는 변하는데 화면으론 가만히 있다가,
-//state가 변할 때 그제야 변한 값이 나타난다.
+
+  const increaseVar = () => {
+    countVar = countVar + 1;
+    console.log('var: ', countVar);
+  };
+
+  const printResults = () => {
+    console.log('ref : ', countRef.current);
+    console.log('var: ', countVar);
+  }
+
   return (
-    <div className="App">
-      <p>State : {count}</p>
+    <div>
       <p>Ref : {countRef.current}</p>
-      <button onClick = {increaseCountState}>State 올려</button>
-      <button onClick = {increaseCountRef}>Ref 올려 </button>
+      <p>Var : {countVar}</p>
+      <button onClick = {doRendering}>렌더링</button>
+      <button onClick = {increaseRef}>Ref 올려</button>
+      <button onClick = {increaseVar}>Var 올려</button>
+      
+      <button onClick = {printResults}>결과</button>
     </div>
   );
 }
