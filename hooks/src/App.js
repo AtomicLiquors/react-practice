@@ -1,36 +1,34 @@
 
 import './App.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
-const heavyWork = () => {
-  console.log('big load of work');
-  return ['이콩이', '구름이'];
-}
-
-function App() {
+const App = () => {
   //const [names, setNames] = useState(heavyWork);
-  const [names, setNames] = useState(() => {
-   return heavyWork();
-  });
-  const [input, setInput] = useState('');
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
+  const [count, setCount] = useState(0);
+  const countRef = useRef(0);
+
+  console.log(countRef);
+  console.log('Rendering...');
+
+
+  const increaseCountState = () => {
+    setCount(count+1);
   };
 
-  const handleUpload = () => {
-    setNames((prevState) => {
-      console.log(prevState);
-      return([input, ...prevState])
-    })    
+  const increaseCountRef = () => {
+    countRef.current = countRef.current + 1;
+    console.log("Ref : ", countRef.current);
   };
-
+  
+//Ref가 아무리 증가해도 화면이 업데이트되지 않는다. 
+//console로는 변하는데 화면으론 가만히 있다가,
+//state가 변할 때 그제야 변한 값이 나타난다.
   return (
     <div className="App">
-      <input type = "text" value={input} onChange={handleInputChange}/>
-      <button onClick={handleUpload}>Upload</button>
-      {names.map( (name, idx) => {
-        return <p key = {idx}>{name}</p>
-      })}
+      <p>State : {count}</p>
+      <p>Ref : {countRef.current}</p>
+      <button onClick = {increaseCountState}>State 올려</button>
+      <button onClick = {increaseCountRef}>Ref 올려 </button>
     </div>
   );
 }
