@@ -1,10 +1,12 @@
 import React from 'react';
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
+import { UserContext } from '../context/UserContext';
 
 //const Content = ({ isDark }) => {
 const Content = () => {
-        const { isDark } = useContext(ThemeContext);
+    const { isDark } = useContext(ThemeContext);
+    const user = useContext(UserContext);
     return (
         <div
             className = "content"
@@ -13,7 +15,7 @@ const Content = () => {
                 color: isDark ? 'white' : 'black',
             }}
             >
-                <p>content</p>
+                <p>{user}님</p>
         </div>
     );
 }

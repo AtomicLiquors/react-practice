@@ -15,9 +15,9 @@ const Page = () => {
            {/* <Header isDark = {isDark}/>
             <Content isDark = {isDark}/>
             <Footer isDark = {isDark} setIsDark={setIsDark}/>*/}
-            {/*<Header/>
+            <Header/>
             <Content/>
-            <Footer/>*/}
+            <Footer/>
         </div>
     );
 };

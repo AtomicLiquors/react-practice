@@ -16,7 +16,7 @@ const Footer = () => {
                 backgroundColor:isDark?'black':'lightgrahy',
             }}
             >
-                <button classNAme = "button" onClick={toggleTheme}>
+                <button className = "button" onClick={toggleTheme}>
                     DarkMode
                 </button>
         </footer>
