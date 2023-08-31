@@ -1,22 +1,15 @@
+import React from 'react'
+import * as pages from './pages'
 
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+{/*<Router>
+      <Routes>
+        <Route path='localhost:3000' element={<pages.Landing />} />
+      </Routes>
+  </Router>*/}
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>aaaaa</div>
   );
 }
 
