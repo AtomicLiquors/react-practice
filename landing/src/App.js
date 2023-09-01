@@ -1,22 +1,21 @@
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
+import * as styles from 'style'
+import * as utils from 'utils'
+import * as pages from 'pages'
+import * as components from 'components'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+            <Route path={utils.URL.HOME.MAIN} element={<components.Layout />}>
+                <Route path={utils.URL.HOME.MAIN} element={<pages.Main />} />
+                <Route path={utils.URL.CHAT.TEXT} element={<pages.TextChat />} />
+            </Route>
+        </Routes>
+    </Router>
   );
 }
 
