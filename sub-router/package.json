@@ -1,5 +1,5 @@
 {
-  "name": "remotion-host",
+  "name": "sub-router",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
